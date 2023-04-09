@@ -46,6 +46,8 @@ const getAccessToken = async (jwtToken) => {
       jwt_token: jwtToken,
     });
 
+    console.log('Request Body:', requestBody); // Add this line
+
     const response = await axios.post(
       'https://ims-na1.adobelogin.com/ims/exchange/jwt',
       requestBody,
