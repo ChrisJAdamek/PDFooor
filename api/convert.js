@@ -51,7 +51,7 @@ app.post('/api/convert', upload.single('pdf'), async (req, res) => {
       {
         headers: {
           'Content-Type': 'application/pdf',
-          'x-api-key': process.env.ADOBE_API_KEY,
+          'x-api-key': process.env.ADOBE_CLIENT_ID, // Use the Client ID here
           'Authorization': `Bearer ${jwtToken}`,
         },
         responseType: 'arraybuffer',
