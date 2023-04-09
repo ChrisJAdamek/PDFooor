@@ -22,16 +22,17 @@ const generateJwtToken = () => {
   ).toString();
 
   const payload = {
-    iss: "A59B2A0664310CA80A495E6D@AdobeOrg",
-    sub: "B7F632436432234B0A495E4C@techacct.adobe.com",
-    aud: 'https://ims-na1.adobelogin.com/c/',
-    exp: Math.round(Date.now() / 1000) + 60 * 60,
+    exp: 1681104068,
+    iss: 'A59B2A0664310CA80A495E6D@AdobeOrg',
+    sub: 'B7F632436432234B0A495E4C@techacct.adobe.com',
+    'https://ims-na1.adobelogin.com/s/example_sdk': true,
+    aud: 'https://ims-na1.adobelogin.com/c/032f50479e344564a8d1e75f9a1bb77f',
   };
 
   const token = jwt.sign(payload, privateKey, {
     algorithm: 'RS256',
     header: {
-      'x5c': [publicCert], 
+      'x5c': [publicCert],
     },
   });
 
@@ -45,8 +46,6 @@ const getAccessToken = async (jwtToken) => {
       client_secret: process.env.ADOBE_CLIENT_SECRET,
       jwt_token: jwtToken,
     });
-
-    console.log('Request Body:', requestBody); // Add this line
 
     const response = await axios.post(
       'https://ims-na1.adobelogin.com/ims/exchange/jwt',
