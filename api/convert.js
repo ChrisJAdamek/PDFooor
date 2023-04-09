@@ -66,7 +66,6 @@ app.post('/api/convert', upload.single('pdf'), async (req, res) => {
 
     // Convert Markdown to HTML
     const html = md.render(markdown);
-
     res.send(html);
   } catch (error) {
     console.error(error);
