@@ -23,7 +23,7 @@ const generateJwtToken = () => {
 
   const payload = {
     iss: process.env.ADOBE_CLIENT_ID,
-    sub: 'B7F632436432234B0A495E4C@techacct.adobe.com',
+    sub: "B7F632436432234B0A495E4C@techacct.adobe.com",
     aud: 'https://ims-na1.adobelogin.com/c/',
     exp: Math.round(Date.now() / 1000) + 60 * 60,
   };
