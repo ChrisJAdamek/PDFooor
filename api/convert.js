@@ -77,7 +77,7 @@ app.post('/api/convert', upload.single('pdf'), async (req, res) => {
     }
 
     const response = await axios.post(
-      'https://api.adobe.io/convert/pdf/export',
+      'https://api.adobe.io/pdf/convert/export',
       pdfBuffer,
       {
         headers: {
