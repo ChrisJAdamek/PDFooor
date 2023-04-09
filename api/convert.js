@@ -63,8 +63,6 @@ const getAccessToken = async (jwtToken) => {
   }
 };
 
-console.log('Request Body:', requestBody);
-
 app.post('/api/convert', upload.single('pdf'), async (req, res) => {
   const { buffer: pdfBuffer } = req.file;
 
