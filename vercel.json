@@ -1,7 +1,0 @@
-{
-  "functions": {
-    "api/convert.js": {
-      "runtime": "nodejs@16.x"
-    }
-  }
-}
