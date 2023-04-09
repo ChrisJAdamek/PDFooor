@@ -21,7 +21,7 @@ const generateJwtToken = () => {
   ).toString();
 
   const payload = {
-    iss: process.env.ADOBE_API_KEY,
+    iss: process.env.ADOBE_CLIENT_ID, // Use the Client ID here
     sub: process.env.ADOBE_CLIENT_ID,
     aud: 'https://ims-na1.adobelogin.com/c/',
     exp: Math.round(Date.now() / 1000) + 60 * 60, // Expires in 1 hour
@@ -31,12 +31,12 @@ const generateJwtToken = () => {
     algorithm: 'RS256',
     header: {
       'x5c': [publicCert],
-      'x5t#S256': process.env.ADOBE_X5T,
     },
   });
 
   return token;
 };
+
 
 app.post('/api/convert', upload.single('pdf'), async (req, res) => {
   const { buffer: pdfBuffer } = req.file;
